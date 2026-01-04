@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParkEase – Smart Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚗 ParkEase</h1>
+        <p class="subtitle">Smart Parking for Crowded Streets</p>
+
+        <hr>
+
+        <div class="form-group">
+            <label for="vehicle">Vehicle Type</label>
+            <select id="vehicle">
+                <option>Two Wheeler</option>
+                <option>Four Wheeler</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location</label>
+            <select id="location">
+                <option>FC Road, Pune</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="day">Day</label>
+            <select id="day">
+                <option>Weekday</option>
+                <option>Weekend</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="time">Time</label>
+            <input type="time" id="time">
+        </div>
+
+        <button onclick="checkParking()">Check Parking Availability</button>
+
+        <p id="result"></p>
+
+        <p id="aiResult"></p>
+
+        <h2>Parking Location (FC Road)</h3>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.252192480021!2d73.8390376746521!3d18.51750226926892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c07f4daa097f%3A0xce339b60765d5009!2sFergusson%20College%20Rd%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1766596372979!5m2!1sen!2sin" width="400" height="300" style="border:0;"
+     allowfullscreen=""
+     loading="lazy"
+     referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

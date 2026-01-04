@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ParkEase – Reserve Slot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Reserve Your Parking Slot</h2>
+
+    <label>Vehicle Number</label>
+    <input type="text" id="vehicleNumber" placeholder="MH12AB1234">
+
+    <p>Scan QR Code to Pay</p>
+    <img src="qr.jpeg" alt="QR Code" width="200">
+
+    <br><br>
+    <button onclick="confirmReservation()">Confirm Reservation</button>
+
+    <p id="reserveResult"></p>
+</div>
+
+<script type="module" src="reserve.js"></script>
+</body>
+</html>
