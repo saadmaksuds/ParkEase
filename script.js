@@ -3,22 +3,18 @@ import { db, collection, addDoc, serverTimestamp } from "./firebase.js";
 function getAIInsight(vehicle, day, time) {
     const hour = parseInt(time.split(":")[0]);
 
-    // Weekend evening rush
     if (day === "Weekend" && hour >= 18) {
         return "🚦 AI Insight: High parking demand expected due to weekend evening rush. Consider arriving earlier.";
     }
 
-    // Morning peak hours
     if (hour >= 9 && hour <= 11) {
         return "🧠 AI Insight: Morning peak hours detected. Parking turnover may be slow.";
     }
 
-    // Evening car congestion
     if (vehicle === "Car" && hour >= 17) {
         return "🤖 AI Insight: Car parking demand increases in the evening. Two-wheelers may find slots faster.";
     }
 
-    // Normal condition
     return "✅ AI Insight: Parking conditions appear normal. Availability is likely.";
 }
 
@@ -48,15 +44,21 @@ window.checkParking = async function () {
   } 
   else {
     status = "AVAILABLE";
-    result.innerText = "✅ Parking available. Redirecting...";
-    
-    setTimeout(() => {
+    result.innerText = "✅ Parking available";
+
+    // ✅ CONFIRMATION POPUP
+    const proceed = window.confirm(
+      "Parking is available.\n\nDo you want to proceed to reservation?"
+    );
+
+    if (proceed) {
       window.location.href = "reserve.html";
-    }, 1500);
+    }
   }
 
+  // AI Insight
   const aiMessage = getAIInsight(vehicle, day, time);
-document.getElementById("aiResult").innerText = aiMessage;
+  document.getElementById("aiResult").innerText = aiMessage;
 
   // Save to Firestore
   try {

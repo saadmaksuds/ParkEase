@@ -29,3 +29,4 @@ const db = getFirestore(app);
 
 // Export
 export { db, collection, addDoc, serverTimestamp };
+
